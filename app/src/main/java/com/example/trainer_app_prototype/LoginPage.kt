@@ -63,7 +63,7 @@ fun LoginPage(){
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Priihlás sa pre pokračovanie",
+                text = "Prihlás sa pre pokračovanie",
                 color = Color.Gray,
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier
@@ -100,7 +100,7 @@ fun LoginPage(){
 
                 modifier = Modifier.fillMaxWidth().background(Color(R.color.pozadie)),
 
-            ) {
+                ) {
                 Text(text = "Prihlásiť sa")
             }
         }

@@ -45,7 +45,7 @@ fun StartPage(){
 
 
             Surface(color = Color(R.color.pozadieblede)) {
-                modifier = Modifier.padding(20.dp, 20.dp)
+               // modifier = Modifier.padding(20.dp, 20.dp)
                 Column {
                     var ButtKlient = createButton(tagOfButton = "klient")
                     Spacer(modifier = Modifier.height(20.dp))
