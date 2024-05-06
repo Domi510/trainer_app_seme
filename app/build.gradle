@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.trainer_app_prototype'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.trainer_app_prototype"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -67,7 +67,7 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     def room_version = "2.4.2"
-
+    implementation "androidx.compose.runtime:runtime-livedata:1.6.7"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
