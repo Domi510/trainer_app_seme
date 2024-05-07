@@ -1,4 +1,4 @@
-package com.example.trainer_app_prototype.login
+package com.example.trainer_app_prototype.states
 
 data class LoginUIState(
     val username: String = "",

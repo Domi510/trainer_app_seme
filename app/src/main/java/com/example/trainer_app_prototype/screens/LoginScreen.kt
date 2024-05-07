@@ -1,4 +1,4 @@
-package com.example.trainer_app_prototype.login
+package com.example.trainer_app_prototype.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,13 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.trainer_app_prototype.R
+import com.example.trainer_app_prototype.states.LoginUIState
 import com.example.trainer_app_prototype.ui.theme.DarkBlue // Import your custom color
+import com.example.trainer_app_prototype.viewModel.LoginViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
