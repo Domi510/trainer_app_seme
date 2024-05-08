@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -14,18 +16,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.trainer_app_prototype.R
 import com.example.trainer_app_prototype.states.LoginUIState
-import com.example.trainer_app_prototype.ui.theme.DarkBlue // Import your custom color
 import com.example.trainer_app_prototype.viewModel.LoginViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(viewModel: LoginViewModel) {
-    val uiState = viewModel.uiState.observeAsState().value ?: LoginUIState()
+fun LoginScreen(navController: NavController,
+                loginViewModel: LoginViewModel = viewModel()) {  // viewModel() is used to instantiate the ViewModel
+    val uiState = loginViewModel.uiState.observeAsState().value ?: LoginUIState()  // Use loginViewModel instead of viewModel
     val scrollState = rememberScrollState()
 
     Column(modifier = Modifier
@@ -68,23 +74,18 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                TextField(
-                    value = uiState.username,
-                    onValueChange = viewModel::updateUsername,
-                    label = { Text("Meno") }
-                )
+                createTextField(label = "Meno")
+
                 Spacer(modifier = Modifier.height(16.dp))
-                TextField(
-                    value = uiState.password,
-                    onValueChange = viewModel::updatePassword,
-                    label = { Text("Heslo") },
-                    visualTransformation = PasswordVisualTransformation()
-                )
+
+                createTextField(label = "Heslo")
+
                 Spacer(modifier = Modifier.height(24.dp))
-                Button(
-                    onClick = viewModel::login,
+
+                Button(onClick = {navController.navigate("trainerHomeScreen") },
+                    //onClick = loginViewModel::login,
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(containerColor = DarkBlue)
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
                     Text("Prihlásiť sa")
                 }
@@ -96,10 +97,34 @@ fun LoginScreen(viewModel: LoginViewModel) {
                 // Clickable text
                 Text(
                     text = "Tak klikni sem a zaregistruj sa!",
-                    modifier = Modifier.clickable { /* Handle click here */ },
+                    modifier = Modifier.clickable { navController.navigate("registerScreen")},
                     style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)
                 )
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun createTextField(label: String) {
+    var text by remember { mutableStateOf("") }
+
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text(label) },
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.LightGray, shape = RoundedCornerShape(8.dp)),
+        colors = TextFieldDefaults.textFieldColors(
+            containerColor = Color.Transparent,
+            textColor = Color.Black,
+            disabledTextColor = Color.Gray,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent
+        ),
+        visualTransformation = if (label == "Heslo") PasswordVisualTransformation() else VisualTransformation.None,
+    )
 }

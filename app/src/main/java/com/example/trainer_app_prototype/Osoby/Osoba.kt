@@ -1,4 +1,4 @@
-package com.example.trainer_app_prototype.Osoby
+/*package com.example.trainer_app_prototype.Osoby
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -15,4 +15,4 @@ class Osoba {
         println("Vek osoby je: $vek")
 
     }
-}
+}*/

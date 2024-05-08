@@ -1,3 +1,4 @@
+/*
 package com.example.trainer_app_prototype.dataComponent
 import android.content.Context
 
@@ -13,4 +14,4 @@ class AppDataKontajner(private val context: Context) : AppKontajner {
     override val personRepository: PersonRepository by lazy {
         OfflinePersonRepository(PersonsDatabase.getDatabase(context).personsDao())
     }
-}
+}*/

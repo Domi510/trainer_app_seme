@@ -1,4 +1,5 @@
-package com.example.trainer_app_prototype.dataComponent
+
+/*package com.example.trainer_app_prototype.dataComponent
 import com.example.trainer_app_prototype.Osoby.Osoba
 import kotlinx.coroutines.flow.Flow
 
@@ -27,4 +28,4 @@ interface PersonRepository {
      * Update item in the data source
      */
     suspend fun updatePerson(osoba: Osoba)
-}
+}*/

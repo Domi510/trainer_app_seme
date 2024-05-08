@@ -1,4 +1,4 @@
-package com.example.trainer_app_prototype.dataComponent
+/*package com.example.trainer_app_prototype.dataComponent
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import android.content.Context
@@ -23,4 +23,4 @@ abstract class PersonsDatabase : RoomDatabase() {
             }
         }
     }
-}
+}*/

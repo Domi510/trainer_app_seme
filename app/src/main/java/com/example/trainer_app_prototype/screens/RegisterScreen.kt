@@ -14,14 +14,23 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,25 +45,43 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.trainer_app_prototype.R
 import com.example.trainer_app_prototype.states.RegisterState
 import com.example.trainer_app_prototype.viewModel.RegisterViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterScreen(registerViewModel: RegisterViewModel) {
+fun RegisterScreen(navController: NavController,
+                   registerViewModel: RegisterViewModel = viewModel()) {
     val state = registerViewModel.state.collectAsState().value
     val scrollState = rememberScrollState()
+    val showDialog = registerViewModel.showDialog.value
 
     Column(modifier = Modifier
         .fillMaxSize()
         .verticalScroll(scrollState)) {
-
-        // Adjusting the size and content arrangement of the black section
+        TopAppBar(
+            title = { Text("Mám účet", color = Color.White) }, // Set text color to white
+            navigationIcon = {
+                IconButton(onClick = { navController.navigate("loginScreen") }) {
+                    Icon(
+                        Icons.Filled.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color.White // Set icon color to white
+                    )
+                }
+            },
+            colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = Color.Black // Set background color to black
+            )
+        )
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(0.8f)  // Decreased weight to reduce the size
-                .background(Color.Black),
+                .background(MaterialTheme.colorScheme.background),
             contentAlignment = Alignment.Center  // This aligns the children to the center of the Box
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -84,6 +111,10 @@ fun RegisterScreen(registerViewModel: RegisterViewModel) {
             RegistrationFormContent(registerViewModel, state)
         }
     }
+
+    if (showDialog) {
+        RoleSelectionDialog(showDialog = registerViewModel.showDialog, onRoleSelected = registerViewModel::handleRoleSelection)
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -95,26 +126,26 @@ private fun RegistrationFormContent(registerViewModel: RegisterViewModel, state:
     ) {
         Spacer(modifier = Modifier.height(16.dp))
         
-        createTextField(label = "Meno")
+        createTextFieldR(label = "Meno")
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        createTextField(label = "Email")
+        createTextFieldR(label = "Email")
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        createTextField(label = "Heslo")
+        createTextFieldR(label = "Heslo")
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        createTextField(label = "Tel. číslo")
+        createTextFieldR(label = "Tel. číslo")
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = registerViewModel::register,
             modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
             Text("Zaregistrovať sa", color = Color.White)
         }
@@ -123,7 +154,7 @@ private fun RegistrationFormContent(registerViewModel: RegisterViewModel, state:
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun createTextField(label: String) {
+private fun createTextFieldR(label: String) {
     var text by remember { mutableStateOf("") }
 
     TextField(
@@ -142,7 +173,30 @@ private fun createTextField(label: String) {
             disabledIndicatorColor = Color.Transparent
         ),
         visualTransformation = if (label == "Heslo") PasswordVisualTransformation() else VisualTransformation.None,
-        keyboardOptions = if (label == "Email") KeyboardOptions(keyboardType = KeyboardType.Email) else KeyboardOptions.Default
+        keyboardOptions = if (label == "Email") KeyboardOptions(keyboardType = KeyboardType.Email) else KeyboardOptions.Default,
+
     )
 }
+@Composable
+fun RoleSelectionDialog(showDialog: MutableState<Boolean>, onRoleSelected: (String) -> Unit) {
+    if (showDialog.value) {
+        AlertDialog(
+            onDismissRequest = { showDialog.value = false },
+            title = { Text("Vyber si svoju rolu") },
+            text = { Text("Si klient alebo tréner?") },
+            confirmButton = {
+                TextButton(onClick = { onRoleSelected("Client") }) {
+                    Text("Klient")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { onRoleSelected("Trainer") }) {
+                    Text("Tréner")
+                }
+            }
+        )
+    }
+}
+
+
 

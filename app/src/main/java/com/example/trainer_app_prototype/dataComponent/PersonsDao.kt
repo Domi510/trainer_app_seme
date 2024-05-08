@@ -1,4 +1,4 @@
-package com.example.trainer_app_prototype.dataComponent
+/*package com.example.trainer_app_prototype.dataComponent
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -23,7 +23,7 @@ interface PersonsDao {
     @Query("SELECT * from users WHERE id = :id")
     fun getPerson(id: Int): Flow<Osoba>
 
-    @Query("SELECT * from users ORDER BY name ASC")
+    @Query("SELECT * from users ORDER BY meno ASC")
     fun getAllPersons(): Flow<List<Osoba>>
 
-}
+}*/
