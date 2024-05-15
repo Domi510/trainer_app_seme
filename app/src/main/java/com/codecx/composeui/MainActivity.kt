@@ -24,13 +24,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.codecx.composeui.destinationEnum.Destination
+import com.codecx.composeui.ui.screens.homeScreens.TimerScreen
 import com.codecx.composeui.ui.theme.ComposeUiTheme
 import com.codecx.composeui.ui.screens.screens.HomeScreen
 import com.codecx.composeui.ui.screens.screens.LoginScreen
 import com.codecx.composeui.ui.screens.screens.SignUpScreen
 import com.codecx.composeui.ui.screens.screens.SplashScreen
 import dagger.hilt.android.AndroidEntryPoint
-
+/**
+ * Základná aktivita
+ * AndroidEntryPoint - je anotácia poskytovaná knižnicou Hilt
+ * Spustenie funkcie NavScreen - ktorá určuje prvotnú obrazovku SplashName
+ * nastavenie farby stavového riadku na bielu
+ * */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +53,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
+/**
+ * Hlavná navigácia pomocou NavHost
+ * prechody medzi obrazovkami sú pomocou animácii fadeIn, fadeOut + slideHorizontaly
+ * */
     @Composable
     private fun NavScreen() {
         val navController = rememberNavController()
@@ -69,6 +78,9 @@ class MainActivity : ComponentActivity() {
             }
             composable(Destination.Login.name) {
                 LoginScreen(navController = navController)
+            }
+            composable(Destination.Timer.name) {
+                TimerScreen(navController = navController)
             }
             composable(Destination.SignUp.name) {
                 SignUpScreen(navController = navController)

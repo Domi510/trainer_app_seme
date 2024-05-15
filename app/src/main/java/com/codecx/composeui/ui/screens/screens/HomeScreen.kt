@@ -42,12 +42,19 @@ import com.codecx.composeui.ui.screens.homeScreens.ClientsScreen
 import com.codecx.composeui.ui.screens.homeScreens.HomeMainScreen
 import com.codecx.composeui.ui.screens.homeScreens.PlansScreen
 import com.codecx.composeui.ui.screens.homeScreens.SubscriptionScreen
-
+import com.codecx.composeui.ui.screens.homeScreens.TimerScreen
+/**
+ * Funkcia, ktorá spúšta funkciu HomeScreenContent pomocou NavControllera
+ * jednoduché oddelenie logiky pre prípadnú expanziu kódu
+ * */
 @Composable
 fun HomeScreen(navController: NavController) {
     HomeScreenContent()
 }
-
+/**
+ * Funkcia, ktorá definuje odddelenú navigáciu a
+ * definuje spodné tlačidlá, ktoré sa NAchádzajú v BottomBar
+ * */
 @Composable
 private fun HomeScreenContent() {
     val controller = rememberNavController()
@@ -73,6 +80,9 @@ private fun HomeScreenContent() {
             }
             composable(Destination.Clients.name) {
                 ClientsScreen(navController = controller)
+            }
+            composable(Destination.Timer.name) {
+                TimerScreen(navController = controller)
             }
             composable(Destination.Subscription.name) {
                 SubscriptionScreen(navController = controller)
@@ -104,7 +114,12 @@ private fun HomeScreenContent() {
 
     }
 }
-
+/**
+ * Funkcia, ktorá nastavuje spodný BottomBar
+ * pre predídenie duplicít funkcia cez data class
+ * definuje jednotlivé tlačidla
+ * Nastavuje celkové rozloženie BottomBar
+ */
 @Composable
 private fun BottomButtons(onButtonClick: (BottomButton) -> Unit = {}) {
     val buttons = remember {
@@ -143,10 +158,16 @@ private fun BottomButtons(onButtonClick: (BottomButton) -> Unit = {}) {
     )
 
 }
-
+/**
+ * Dátová trieda, pre definovanie BottomButton
+ * */
 @Stable
 data class BottomButton(val id: Int, val icon: Int, val destination: String)
 
+/**
+ * Funkcia, ktorá slúži na prehľad modelu v offline
+ * bez dodatočného použitia emulátora / mobilného zariadenia
+ * */
 @Preview
 @Composable
 private fun BottomButtonPreview() {

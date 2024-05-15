@@ -1,37 +1,26 @@
 {
   "project_info": {
-    "project_number": "797148064152",
-    "firebase_url": "https://intro-2c330-default-rtdb.firebaseio.com",
-    "project_id": "intro-2c330",
-    "storage_bucket": "intro-2c330.appspot.com"
+    "project_number": "351138936117",
+    "project_id": "trainer-25e61",
+    "storage_bucket": "trainer-25e61.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:797148064152:android:0407337b03172e4987e3ed",
+        "mobilesdk_app_id": "1:351138936117:android:2dc665d7cf98753cf4c87c",
         "android_client_info": {
           "package_name": "com.codecx.composeui"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "797148064152-n41920pkiqhoohs5ig62t6skb36n3lh8.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCzUQk_nKk1JrZQqfxAzPmr-xUs_ANp4f4"
+          "current_key": "AIzaSyBn0epRAmfApwOvcLSq_a_RnY1pwKeVk2E"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "797148064152-n41920pkiqhoohs5ig62t6skb36n3lh8.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

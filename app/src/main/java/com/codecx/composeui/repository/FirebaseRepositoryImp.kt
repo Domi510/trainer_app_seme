@@ -14,7 +14,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-
+/**
+ * Trieda, ktorá zabezpečuje komunikáciu s firebase databázou
+ * */
 @ViewModelScoped
 class FirebaseRepositoryImp @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -31,7 +33,11 @@ class FirebaseRepositoryImp @Inject constructor(
                 emit(AuthStates.Success)
             } ?: emit(AuthStates.Fail("Email alebo heslo sa nezhodujú !"))
         }.flowOn(Dispatchers.IO)
-
+/**
+ * Funkcia, ktorá zabezpečuje vyžiadanie na prihlásenie
+ * ako paramter má užívateľa a jeho meno a heslo
+ * Ak je prihlásenie neúspešné voláme stav Fail s konkrétnou správou
+ * */
     override fun requestForSignUp(user: User): Flow<AuthStates> = flow {
 
         val authTask = auth.createUserWithEmailAndPassword(user.email, user.password).await()
@@ -41,13 +47,16 @@ class FirebaseRepositoryImp @Inject constructor(
             emit(AuthStates.Success)
         } ?: emit(AuthStates.Fail("Prihlásenie zlyhalo"))
     }.flowOn(Dispatchers.IO)
-
+/**
+ * Funkcia, ktorá načíta konkrétneho prihláseného užívateľa a uloží dáta o ňom
+ * inak dá dáta, ktoré sú vložené po neúspešnom loadovaní údajov
+ * */
     override fun loadAccountInfo(): Flow<AuthStates> = flow<AuthStates> {
         if (auth.currentUser != null) {
             val info = userRef.child(auth.currentUser?.uid!!).get().await()
             UserDataHolder.user = info.getValue(User::class.java)
         } else {
-            UserDataHolder.user = User("Ivan Kácerík - Zilina", "holder@gmail.com", "+1423590807")
+            UserDataHolder.user = User("Neznámy", "neznamy@gmail.com", "+421000000000")
         }
         emit(AuthStates.Success)
 

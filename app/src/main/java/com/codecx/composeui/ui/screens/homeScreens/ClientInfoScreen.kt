@@ -33,7 +33,9 @@ import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.utils.UserDataHolder
 import com.codecx.composeui.viewModels.AuthViewModel
 import com.google.gson.Gson
-
+/**
+ * Funkcia, ktorá prepája info o klientovi s navigáciou
+ * */
 @Composable
 fun ClientInfoScreen(navController: NavController) {
     val client = remember {
@@ -51,7 +53,9 @@ fun ClientInfoScreen(navController: NavController) {
         client = client.value
     )
 }
-
+/**
+ * Funkcia, ktorá nastavujecelkovú obrazovku info o klientoch
+ * */
 @Composable
 private fun ClientInfoScreenContent(onCloseClick: () -> Unit = {}, client: ClientModel) {
     Column(
@@ -141,7 +145,9 @@ private fun ClientInfoScreenContent(onCloseClick: () -> Unit = {}, client: Clien
         }
     }
 }
-
+/**
+ * Funkcia nastavujúca hlavičku klienta
+ * */
 @Composable
 private fun ClientInfoTypeHeader(title: String, onAddClick: () -> Unit = {}) {
     Box(
@@ -163,7 +169,9 @@ private fun ClientInfoTypeHeader(title: String, onAddClick: () -> Unit = {}) {
     }
 }
 
-
+/**
+ * Funkcia sprístupňujúca preview obrazovky
+ * */
 @Composable
 private fun ClientInfoPreview() {
 

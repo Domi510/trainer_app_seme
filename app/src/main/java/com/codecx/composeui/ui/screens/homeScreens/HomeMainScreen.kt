@@ -80,7 +80,9 @@ private fun HomeMainScreenContent(navController: NavController) {
             AppImageButton(icon = R.drawable.ic_notes, title = "List of clients", onClick = {
                 navController.navigate(Destination.Clients.name)
             })
-            AppImageButton(icon = R.drawable.dumble, title = "Workout", onClick = {})
+            AppImageButton(icon = R.drawable.dumble, title = "Timer", onClick = {
+                navController.navigate(Destination.Timer.name)
+            })
         }
 
 

@@ -50,7 +50,10 @@ import com.codecx.composeui.ui.theme.CardColorLight
 import com.codecx.composeui.ui.theme.LightTextColor
 import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.viewModels.AuthViewModel
-
+/**
+ *Funkcia, ktorá prepája navigátor a obrazovku Login
+ *Používa funkcie, ktoré animujú prechody
+ * */
 @Composable
 fun LoginScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {
     val context = LocalContext.current
@@ -84,7 +87,9 @@ fun LoginScreen(navController: NavController, viewModel: AuthViewModel = hiltVie
         navController.navigate(Destination.SignUp.name)
     })
 }
-
+/**
+ *Funkcia pre rozloženie Login obrazovky
+ * */
 @Composable
 private fun LoginScreenContent(
 
@@ -187,7 +192,9 @@ private fun LoginScreenContent(
         }
     }
 }
-
+/**
+ *Funkcia pre jednotlivý textField - nie je špeciálny
+ * */
 @Composable
 fun Inputs(
     value: MutableState<String>,
@@ -225,7 +232,10 @@ fun Inputs(
         textStyle = Typography.labelMedium.copy(Color.Black)
     )
 }
-
+/**
+ *Funkcia pre textFiled- tel. číslo
+ * po rozbalení klávesnice - čísla
+ * */
 @Composable
 fun InputTelephone(
     value: MutableState<String>,
@@ -268,7 +278,9 @@ fun InputTelephone(
         )
     )
 }
-
+/**
+ *Funkcia, ktorá zabezpečuje textField pre vloženie hesla
+ * */
 @Composable
 fun PasswordInputs(
     value: MutableState<String>,

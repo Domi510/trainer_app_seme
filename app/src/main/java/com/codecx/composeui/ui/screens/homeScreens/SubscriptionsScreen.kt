@@ -36,10 +36,20 @@ import com.codecx.composeui.ui.theme.PrimaryColor
 import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.utils.UserDataHolder
 
+/**
+ * Obrazovka pre jednotlivé tréningové balíky
+ * Navigation
+ */
 @Composable
 fun SubscriptionScreen(navController: NavController) {
     SubscriptionScreenContent(navController)
 }
+/**
+ * Funkcia, ktorá zoskupuje jednotlivé komponenty
+ * @param navController - pre navigáciu
+ * derivatedStateOf - zmení / vykreslí stav objektu iba keď sa zmení
+ * TopBar - načítavanie mena klienta z databázy
+ */
 
 @Composable
 private fun SubscriptionScreenContent(navController: NavController) {
@@ -62,7 +72,6 @@ private fun SubscriptionScreenContent(navController: NavController) {
         TopBar(userName = UserDataHolder.user?.name ?: "",onCloseClick = {
             navController.navigateUp()
         })
-
 
         Column(
             modifier = Modifier
@@ -90,7 +99,10 @@ private fun SubscriptionScreenContent(navController: NavController) {
         }
     }
 }
-
+/**
+ *Funkcia, ktorá má na starosti vykreslenie jednotlivých balíkov
+ * model balíkov je navrhnutý tak, aby sme predišli duplicitám
+ */
 @Composable
 private fun SubscriptionItem(
     model: SubscriptionModel,

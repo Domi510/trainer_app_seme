@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-05-14T15:04:58.055235300Z">
+        <DropdownSelection timestamp="2024-05-15T17:48:52.324368200Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\QueenSyky\.android\avd\vamz_trainer.avd" />

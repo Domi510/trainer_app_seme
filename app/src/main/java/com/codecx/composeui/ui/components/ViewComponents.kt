@@ -44,7 +44,9 @@ import com.codecx.composeui.R
 import com.codecx.composeui.ui.theme.PrimaryColor
 import com.codecx.composeui.ui.theme.Typography
 
-
+/**
+ * Funkcia,ktorá popisuje TopBar a vykreslenie jednotlivých komponentov
+ * */
 @Composable
 fun TopBar(
     userName: String = "",
@@ -91,14 +93,18 @@ fun TopBar(
     }
 
 }
-
+/**
+ * funkcia, ktorá zatvára aplikáciu
+ * */
 @Composable
 fun CloseApp() {
     val context = LocalContext.current
     val activity = context as? Activity
     activity?.finish()
 }
-
+/**
+ * Funkcia na vytvorenie dialóga
+ * */
 @Composable
 fun InfoDialog(onDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDismiss) {
@@ -130,7 +136,9 @@ fun InfoDialog(onDismiss: () -> Unit) {
     }
 }
 
-
+/**
+ * Funkcia na vytvorenie okrúhlého custom tlačidla
+ * */
 @Composable
 fun RoundIconButton(modifier: Modifier = Modifier, onClick: () -> Unit, icon: Int) {
     IconButton(
@@ -151,7 +159,9 @@ fun RoundIconButton(modifier: Modifier = Modifier, onClick: () -> Unit, icon: In
         )
     }
 }
-
+/**
+ * funkcia na priradenie ikony tlačidla
+ * */
 @Composable
 fun AppImageButton(modifier: Modifier = Modifier, onClick: () -> Unit, title: String, icon: Int) {
     Row(
@@ -181,7 +191,9 @@ fun AppImageButton(modifier: Modifier = Modifier, onClick: () -> Unit, title: St
         )
     }
 }
-
+/**
+ * Funkcia na vytvorenie custom dialóga
+ * */
 @Composable
 fun LoadingDialog(message: String, modifier: Modifier = Modifier) {
     Dialog(
@@ -216,7 +228,9 @@ fun LoadingDialog(message: String, modifier: Modifier = Modifier) {
         }
     }
 }
-
+/**
+ * Funkcia na preview obrazovky
+ * */
 @Preview
 @Composable
 private fun PreviewView() {

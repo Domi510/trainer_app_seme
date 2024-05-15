@@ -39,12 +39,16 @@ import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.utils.UserDataHolder
 import com.codecx.composeui.viewModels.AuthViewModel
 import com.google.gson.Gson
-
+/**
+ *Funkcia pracujúca s navigáciou - prepojené so zoznamom klientov
+ * */
 @Composable
 fun ClientsScreen(navController: NavController) {
     ClientsScreenContent(navController)
 }
-
+/**
+ *Funkcia, ktorá vykresľuje celkovú obrazovku Zoznamu klientov
+ * */
 @Composable
 private fun ClientsScreenContent(navController: NavController) {
     val clients = remember {
@@ -113,7 +117,9 @@ private fun ClientsScreenContent(navController: NavController) {
         }
     }
 }
-
+/**
+ * Funkcia, ktorá nastavuje jednotlivé polia v kartách
+ * */
 @Composable
 fun ClientItem(
     model: ClientModel,
@@ -144,7 +150,9 @@ fun ClientItem(
     }
 }
 
-
+/**
+ * Funkcia sprístupňujúca Preview model
+ * */
 @Preview
 @Composable
 private fun ClientsPreview() {

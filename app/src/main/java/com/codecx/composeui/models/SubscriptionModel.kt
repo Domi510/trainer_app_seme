@@ -1,7 +1,9 @@
 package com.codecx.composeui.models
 
 import androidx.compose.runtime.Stable
-
+/**
+ * Dátový model pre tréningový balík
+ * */
 @Stable
 data class SubscriptionModel(
     val id: Int,

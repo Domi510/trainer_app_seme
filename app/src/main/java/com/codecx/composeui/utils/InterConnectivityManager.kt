@@ -6,7 +6,13 @@ import android.net.NetworkCapabilities
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
-
+/**
+ * Trieda poskytujúca sieťové prepojenie
+ * aplikačný kontext slúži na to, aby to fungovalo po
+ * celú dobu životnosti aplikácie
+ * ConnectivityManager umožňuje aplikácii získavať informácie
+ * o stave siete a spravovať sieťové pripojenia
+ * */
 @Singleton
 class InterConnectivityManager @Inject constructor(
     @ApplicationContext context: Context,
@@ -21,7 +27,10 @@ class InterConnectivityManager @Inject constructor(
                         networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                         networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET))
     }
-
+/**
+ * Funkcia má za úlohu sledovať aktíne sieťové pripojenia
+ * V prípade, že neexistuje sieťové prípojenie vráti sa NULL
+ * */
     private fun networkCapabilities(): NetworkCapabilities? {
         val network = connectivityManager.activeNetwork
         return connectivityManager.getNetworkCapabilities(network)

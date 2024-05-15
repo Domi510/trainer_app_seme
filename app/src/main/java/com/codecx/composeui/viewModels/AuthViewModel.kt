@@ -5,15 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.codecx.composeui.models.User
 import com.codecx.composeui.repository.FirebaseRepositoryImp
 import com.codecx.composeui.sealclasses.AuthStates
-import com.codecx.composeui.utils.UserDataHolder
-import com.codecx.composeui.utils.showLog
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,11 +24,9 @@ class AuthViewModel @Inject constructor(
     private val repo = firebaseRepositoryImp
     private val _authState = MutableStateFlow<AuthStates>(AuthStates.Init)
     val authState = _authState.asStateFlow()
-    // Properties to hold email and password
     private val _email = MutableStateFlow("")
     private val _password = MutableStateFlow("")
 
-    // Public access to email and password
     val email = _email.asStateFlow()
     val password = _password.asStateFlow()
 
@@ -46,7 +41,7 @@ class AuthViewModel @Inject constructor(
         repo.requestForLogin(email, password).onStart {
             _authState.value = AuthStates.Loading("Prihlasovanie...")
         }.catch {
-            "pohoda".showLog("${it.message}")
+
             _authState.value = AuthStates.Fail("Email alebo heslo je nesprávne")
         }.collectLatest {
             _authState.value = it
@@ -62,7 +57,11 @@ class AuthViewModel @Inject constructor(
             _authState.value = it
         }
     }
-
+/**
+ * Funkcia, ktorá rieši registráciu priamo pre používateľa
+ * kontroluje stav auth_state - odchytáva výnimku, v prípade, že registrácia
+ * nie je úspešná
+ * */
     fun requestForSignUp(user: User) = viewModelScope.launch {
         repo.requestForSignUp(user).onStart {
             _authState.value = AuthStates.Loading("Prihlasovanie...")

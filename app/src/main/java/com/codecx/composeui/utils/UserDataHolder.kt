@@ -1,7 +1,9 @@
 package com.codecx.composeui.utils
 
 import com.codecx.composeui.models.User
-
+/**
+ * Objekt, ktorý si uchováva informácie o aktuálnom prihlásenom
+ * */
 object UserDataHolder {
     var user: User? = null
         get() {

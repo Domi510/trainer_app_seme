@@ -39,7 +39,10 @@ import com.codecx.composeui.ui.theme.PrimaryColor
 import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.viewModels.AuthViewModel
 import kotlinx.coroutines.delay
-
+/**
+ * Prvotná obrazovka
+ * naviguje na Login alebo registráciu
+ * */
 @Composable
 fun SplashScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {
     val authState = viewModel.authState.collectAsState()
@@ -68,7 +71,9 @@ fun SplashScreen(navController: NavController, viewModel: AuthViewModel = hiltVi
     }
 }
 
-
+/**
+ * Kompozícia úvodnej obrazovky
+ * */
 @Composable
 private fun SplashScreenContent(onButtonClick: (Int) -> Unit = {}) {
 
@@ -129,7 +134,9 @@ private fun SplashScreenContent(onButtonClick: (Int) -> Unit = {}) {
 
     }
 }
-
+/**
+ *Funkcia, ktorá zabezpečuje Preview obrazovky
+ * */
 @Composable
 @Preview
 private fun SplashScreenPreview() {

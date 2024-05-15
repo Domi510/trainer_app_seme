@@ -44,7 +44,9 @@ import com.codecx.composeui.ui.theme.BackgroundColor
 import com.codecx.composeui.ui.theme.LightTextColor
 import com.codecx.composeui.ui.theme.Typography
 import com.codecx.composeui.viewModels.AuthViewModel
-
+/**
+ * Funkcia pre registráciu
+ * */
 @Composable
 fun SignUpScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {
     val context = LocalContext.current
@@ -78,7 +80,9 @@ fun SignUpScreen(navController: NavController, viewModel: AuthViewModel = hiltVi
         navController.navigateUp()
     })
 }
-
+/**
+ * Funkcia, ktorá nastavuje jednotlivé stavy pri registrácii a zároveň vykresľuje formulár
+ * */
 @Composable
 private fun SignUpScreenContent(
     onSignUpClick: (User) -> Unit = { },
@@ -217,8 +221,9 @@ private fun SignUpScreenContent(
         }
     }
 }
-
-
+/**
+ * Funkcia umožňujúca Preview obrazovky
+ * */
 @Composable
 @Preview
 private fun SignUpScreenPreview() {
