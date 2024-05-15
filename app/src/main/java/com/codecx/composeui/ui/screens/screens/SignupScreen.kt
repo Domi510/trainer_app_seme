@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -128,7 +129,7 @@ private fun SignUpScreenContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Vytvor si úcet",
+                text = stringResource(R.string.vytvor_si_et),
                 modifier = Modifier.padding(top = 40.dp),
                 style = Typography.headlineLarge.copy(
                     Color.Black, fontWeight = FontWeight.SemiBold, fontSize = TextUnit(
@@ -138,14 +139,14 @@ private fun SignUpScreenContent(
                 )
             )
             Text(
-                text = "Uz si zaregistrovaný ? Klikni sem",
+                text = stringResource(R.string.uz_si_zaregistrovan_klikni_sem),
                 modifier = Modifier.padding(top = 3.dp),
                 style = Typography.labelSmall.copy(
                     LightTextColor, fontSize = TextUnit(12f, TextUnitType.Sp)
                 )
             )
             Text(
-                text = "MENO",
+                text = stringResource(R.string.meno),
                 modifier = Modifier
                     .padding(top = 15.dp)
                     .align(Alignment.Start),
@@ -153,9 +154,9 @@ private fun SignUpScreenContent(
                     LightTextColor
                 )
             )
-            Inputs(value = userName, hint = "Jiara Martins")
+            Inputs(value = userName, hint = stringResource(R.string.jiara_martins))
             Text(
-                text = "EMAIL",
+                text = stringResource(R.string.email),
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .align(Alignment.Start),
@@ -164,9 +165,9 @@ private fun SignUpScreenContent(
                 )
             )
 
-            Inputs(value = email, hint = "hello@reallygreatsite.com")
+            Inputs(value = email, hint = stringResource(R.string.hello_reallygreatsite_com))
             Text(
-                text = "HESLO",
+                text = stringResource(R.string.heslo),
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .align(Alignment.Start),
@@ -175,9 +176,9 @@ private fun SignUpScreenContent(
                 )
             )
 
-            PasswordInputs(value = password, hint = "******")
+            PasswordInputs(value = password, hint = stringResource(R.string.passwd))
             Text(
-                text = "TEL. CÍSLO",
+                text = stringResource(R.string.tel_c_slo),
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .align(Alignment.Start),
@@ -186,7 +187,7 @@ private fun SignUpScreenContent(
                 )
             )
 
-            InputTelephone(value = phoneNumber, hint = "Phone No")
+            InputTelephone(value = phoneNumber, hint = stringResource(R.string.phone_no))
             Button(
                 onClick = {
                     onSignUpClick(
@@ -206,7 +207,7 @@ private fun SignUpScreenContent(
                 shape = RoundedCornerShape(20)
             ) {
                 Text(
-                    text = "Zaregistrovat sa",
+                    text = stringResource(R.string.zaregistrovat_sa),
                     style = Typography.labelLarge.copy(
                         fontWeight = FontWeight.SemiBold, fontSize = TextUnit(
                             20f,

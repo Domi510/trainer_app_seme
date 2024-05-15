@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">TrainerApp</string>
+    <string name="email_alebo_heslo_je_nespr_vne">Email alebo heslo je nesprávne</string>
+    <string name="som_tr_ner">Som tréner</string>
+    <string name="som_klient">Som klient</string>
+    <string name="zaregistrovat_sa">Zaregistrovat sa</string>
+    <string name="phone_no">Phone No</string>
+    <string name="passwd">******</string>
+    <string name="tel_c_slo">TEL. CÍSLO</string>
+    <string name="hello_reallygreatsite_com">hello@reallygreatsite.com</string>
+    <string name="heslo">HESLO</string>
+    <string name="jiara_martins">Jiara Martins</string>
+    <string name="email">EMAIL</string>
+    <string name="meno">MENO</string>
+    <string name="uz_si_zaregistrovan_klikni_sem">Uz si zaregistrovaný ? Klikni sem</string>
+    <string name="vytvor_si_et">Vytvor si účet</string>
+    <string name="e_te_nem_et">Ešte nemáš účet?\n</string>
+    <string name="tak_klikni_sem_a_zaregistruj_sa">Tak klikni sem, a zaregistruj sa!</string>
+    <string name="prihl_si_sa">Prihlásiť sa</string>
+    <string name="password">Password</string>
+    <string name="hello_gmail_com">hello@gmail.com</string>
+    <string name="prihl_s_sa_a_pokra_uj">Prihlás sa a pokračuj</string>
+    <string name="login">Login</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="predplatn">Predplatné</string>
+    <string name="nastavenie_dne_n_ch_tr_ningov">Nastavenie dnešných tréningov</string>
+    <string name="zmaza">Zmazať</string>
+    <string name="edit">Edit</string>
+    <string name="prida">Pridať</string>
+    <string name="tr_ningov_pl_n">Tréningový plán</string>
 </resources>

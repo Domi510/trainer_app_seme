@@ -17,9 +17,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.codecx.composeui.R
 import com.codecx.composeui.ui.components.TopBar
 import com.codecx.composeui.utils.UserDataHolder
 
@@ -62,15 +64,15 @@ private fun TimerScreenContent(navController: NavController, time:Int, timerView
                 Spacer(modifier = Modifier.height(16.dp))
                 Row {
                     Button(onClick = { timerViewModel.startTimer() }) {
-                        Text("Start")
+                        Text(stringResource(R.string.start))
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(onClick = { timerViewModel.stopTimer() }) {
-                        Text("Stop")
+                        Text(stringResource(R.string.stop))
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(onClick = { timerViewModel.resetTimer() }) {
-                        Text("Reset")
+                        Text(stringResource(R.string.reset))
                     }
                 }
             }

@@ -25,11 +25,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.codecx.composeui.R
 import com.codecx.composeui.destinationEnum.Destination
 import com.codecx.composeui.sealclasses.AuthStates
 import com.codecx.composeui.ui.components.LoadingDialog
@@ -110,7 +112,7 @@ private fun SplashScreenContent(onButtonClick: (Int) -> Unit = {}) {
                     modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(15.dp)
                 ) {
                     Text(
-                        text = "Som klient",
+                        text = stringResource(R.string.som_klient),
                         style = Typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
                         modifier = Modifier.padding(vertical = 5.dp)
                     )
@@ -123,7 +125,7 @@ private fun SplashScreenContent(onButtonClick: (Int) -> Unit = {}) {
                     modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(15.dp)
                 ) {
                     Text(
-                        text = "Som tréner",
+                        text = stringResource(R.string.som_tr_ner),
                         style = Typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
                         modifier = Modifier.padding(vertical = 5.dp)
                     )

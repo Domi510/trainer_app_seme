@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "351138936117",
-    "project_id": "trainer-25e61",
-    "storage_bucket": "trainer-25e61.appspot.com"
+    "project_number": "952655780350",
+    "project_id": "trainert-16896",
+    "storage_bucket": "trainert-16896.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:351138936117:android:2dc665d7cf98753cf4c87c",
+        "mobilesdk_app_id": "1:952655780350:android:33e88ecab08d64fa0748af",
         "android_client_info": {
           "package_name": "com.codecx.composeui"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBn0epRAmfApwOvcLSq_a_RnY1pwKeVk2E"
+          "current_key": "AIzaSyD8ljHTmbB2xC0Jh1gNVPK0ELgt4pTVKgA"
         }
       ],
       "services": {

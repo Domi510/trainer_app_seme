@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -42,6 +43,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.codecx.composeui.R
 import com.codecx.composeui.destinationEnum.Destination
 import com.codecx.composeui.sealclasses.AuthStates
 import com.codecx.composeui.ui.components.LoadingDialog
@@ -120,7 +122,7 @@ private fun LoginScreenContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Login",
+                text = stringResource(R.string.login),
                 modifier = Modifier.padding(top = 40.dp),
                 style = Typography.headlineLarge.copy(
                     Color.Black, fontWeight = FontWeight.SemiBold, fontSize = TextUnit(
@@ -130,7 +132,7 @@ private fun LoginScreenContent(
                 )
             )
             Text(
-                text = "Prihlás sa a pokracuj",
+                text = stringResource(R.string.prihl_s_sa_a_pokra_uj),
                 modifier = Modifier.padding(top = 3.dp),
                 style = Typography.labelSmall.copy(
                     LightTextColor
@@ -145,9 +147,9 @@ private fun LoginScreenContent(
                     LightTextColor
                 )
             )
-            Inputs(value = email, hint = "hello@gmail.com")
+            Inputs(value = email, hint = stringResource(R.string.hello_gmail_com))
             Text(
-                text = "HESLO",
+                text = stringResource(R.string.heslo),
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .align(Alignment.Start),
@@ -155,7 +157,7 @@ private fun LoginScreenContent(
                     LightTextColor
                 )
             )
-            PasswordInputs(value = password, hint = "Password")
+            PasswordInputs(value = password, hint = stringResource(R.string.password))
             Button(
                 onClick = { onLoginClick(email.value, password.value) },
                 modifier = Modifier
@@ -165,7 +167,7 @@ private fun LoginScreenContent(
                 shape = RoundedCornerShape(20)
             ) {
                 Text(
-                    text = "Prihlásit sa",
+                    text = stringResource(R.string.prihl_si_sa),
                     style = Typography.labelLarge.copy(
                         fontWeight = FontWeight.SemiBold, fontSize = TextUnit(
                             20f,
@@ -177,8 +179,8 @@ private fun LoginScreenContent(
             }
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = "Ešte nemáš účet?\n" +
-                        "Tak klikni sem, a zaregistruj sa!",
+                text = stringResource(R.string.e_te_nem_et) +
+                        stringResource(R.string.tak_klikni_sem_a_zaregistruj_sa),
                 modifier = Modifier
                     .clickable {
                         onSignUpClick()

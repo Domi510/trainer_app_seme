@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -56,11 +57,11 @@ private fun SubscriptionScreenContent(navController: NavController) {
     val subs = remember {
         derivedStateOf {
             listOf(
-                SubscriptionModel(1, "Basic package", "200 €", 10).also {
+                SubscriptionModel(1, "Základný Balík", "200 €", 10).also {
                     it.isBasic = true
-                }, SubscriptionModel(2, "Premium package", "400 €", 15),
-                SubscriptionModel(3, "SM package", "150 €", 10),
-                SubscriptionModel(4, "Training plan", "50 €", 1)
+                }, SubscriptionModel(2, "Premium Balík", "400 €", 15),
+                SubscriptionModel(3, "SM Balík", "150 €", 10),
+                SubscriptionModel(4, "Tréningový plán", "50 €", 1)
             )
         }
     }
@@ -81,7 +82,7 @@ private fun SubscriptionScreenContent(navController: NavController) {
                 .weight(1f)
                 .padding(15.dp), verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
-            AppImageButton(icon = R.drawable.ic_pond, title = "Subscription", onClick = {
+            AppImageButton(icon = R.drawable.ic_pond, title = stringResource(R.string.predplatn), onClick = {
             })
             LazyColumn(
                 modifier = Modifier
@@ -135,7 +136,7 @@ private fun SubscriptionItem(
             ) {
                 Text(text = model.title, style = Typography.labelLarge)
                 Text(
-                    text = "Price: ${model.price}\nNumber of trainings: ${model.numberOfTrainings}\nPaid: ${if (model.isPaid) "Yes" else "No"}\nThe number of training sessions used: ${model.numberOfTrainingSeasonUsed}",
+                    text = "Cena: ${model.price}\nPočet tréningov: ${model.numberOfTrainings}\nZaplatené: ${if (model.isPaid) "ÁNO" else "NIE"}\nPočet využitých tréningov: ${model.numberOfTrainingSeasonUsed}",
                     style = Typography.labelSmall.copy(
                         textAlign = TextAlign.Center, fontSize = TextUnit(
                             15f,

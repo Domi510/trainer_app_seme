@@ -19,6 +19,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -125,7 +126,7 @@ private fun ClientInfoScreenContent(onCloseClick: () -> Unit = {}, client: Clien
                                 .fillMaxWidth()
                         ) {
                             Text(
-                                text = "Treningovy plan",
+                                text = stringResource(R.string.tr_ningov_pl_n),
                                 style = Typography.headlineSmall,
                                 modifier = Modifier.align(Alignment.Center)
                             )

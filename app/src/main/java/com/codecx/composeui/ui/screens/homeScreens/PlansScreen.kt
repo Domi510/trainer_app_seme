@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -259,7 +260,7 @@ private fun PlansScreenContent(navController: NavController) {
                 }
             }
             Text(
-                text = "Settings of today training plan", style = Typography.labelSmall.copy(
+                text = stringResource(R.string.nastavenie_dne_n_ch_tr_ningov), style = Typography.labelSmall.copy(
                     fontSize = TextUnit(
                         12f,
                         TextUnitType.Sp
@@ -277,7 +278,7 @@ private fun PlansScreenContent(navController: NavController) {
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(
-                        text = "Add", style = Typography.labelSmall.copy(
+                        text = stringResource(R.string.prida), style = Typography.labelSmall.copy(
                             fontSize = TextUnit(
                                 14f,
                                 TextUnitType.Sp
@@ -292,7 +293,7 @@ private fun PlansScreenContent(navController: NavController) {
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(
-                        text = "Edit", style = Typography.labelSmall.copy(
+                        text = stringResource(R.string.edit), style = Typography.labelSmall.copy(
                             fontSize = TextUnit(
                                 14f,
                                 TextUnitType.Sp
@@ -307,7 +308,7 @@ private fun PlansScreenContent(navController: NavController) {
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(
-                        text = "Remove", style = Typography.labelSmall.copy(
+                        text = stringResource(R.string.zmaza), style = Typography.labelSmall.copy(
                             fontSize = TextUnit(
                                 14f,
                                 TextUnitType.Sp

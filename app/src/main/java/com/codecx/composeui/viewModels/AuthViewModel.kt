@@ -2,6 +2,7 @@ package com.codecx.composeui.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.codecx.composeui.R
 import com.codecx.composeui.models.User
 import com.codecx.composeui.repository.FirebaseRepositoryImp
 import com.codecx.composeui.sealclasses.AuthStates
@@ -41,8 +42,7 @@ class AuthViewModel @Inject constructor(
         repo.requestForLogin(email, password).onStart {
             _authState.value = AuthStates.Loading("Prihlasovanie...")
         }.catch {
-
-            _authState.value = AuthStates.Fail("Email alebo heslo je nesprávne")
+            _authState.value = AuthStates.Fail("Nesprávne meno alebo heslo")
         }.collectLatest {
             _authState.value = it
         }
