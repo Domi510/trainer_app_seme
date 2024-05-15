@@ -220,8 +220,6 @@ fun LoadingDialog(message: String, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun PreviewView() {
-    //RoundIconButton(onClick = { /*TODO*/ }, icon = R.drawable.baseline_settings_24)
-    // AppImageButton(onClick = { /*TODO*/ }, title = "Button", icon = R.drawable.ic_check)
     LoadingDialog("Test Message")
 
 }
